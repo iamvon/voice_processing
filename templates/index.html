@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.1/css/bulma.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+    <section class="hero is-small is-info is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Vnexpress Recording
+                </h1>
+                <h2 class="subtitle">
+                    Voice processing is awesome!
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="columns is-mobile is-centered">
+        <div class="column is-one-quarter">
+            <section class="section">
+                <div class="container">
+                    <h1 class="title">Recording Categories</h1>
+                    <div class="control">
+                        <span class="dropdown-trigger is-size-5">Vnexpress Categories</span>
+                        <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            <ul id="dropdown-content" class="box dropdown-items is-size-5">
+                                <li class="dropdown-item is-size-5">Thời sự</li>
+                                <li class="dropdown-item is-size-5">Góc nhìn</li>
+                                <li class="dropdown-item is-size-5">Thế giới</li>
+                                <li class="dropdown-item is-size-5">Kinh doanh</li>
+                                <li class="dropdown-item is-size-5">Giải trí</a></li>
+                                <li class="dropdown-item is-size-5">Thể thao</li>
+                                <li class="dropdown-item is-size-5">Pháp luật</li>
+                                <li class="dropdown-item is-size-5">Giáo dục</li>
+                                <li class="dropdown-item is-size-5">Sức khỏe</a></li>
+                                <li class="dropdown-item is-size-5">Đời sống</li>
+                                <li class="dropdown-item is-size-5">Du lịch</li>
+                                <li class="dropdown-item is-size-5">Khoa học</li>
+                                <li class="dropdown-item is-size-5">Số hóa</a></li>
+                                <li class="dropdown-item is-size-5">Xe</li>
+                                <li class="dropdown-item is-size-5">Ý kiến</li>
+                                <li class="dropdown-item is-size-5">Tâm sự</li>
+                            </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="column">
+            <section class="section">
+                <div class="container is-size-5">
+                    <h2 class="title " id="article-title">Article's title</h2>
+                    <a id="article-url">
+                        This is an article's url.
+                    </a>
+                    <br/>
+                    <br/>
+                    <div id="article-sentence" class="notification">
+                        This is an article's sentence.
+                    </div>
+                </div>
+                <progress id="progress-bar" class="progress is-info" value="0" max="100"></progress>
+                <div class="columns is-mobile is-centered">
+                    <div id="button-back" class="column is-narrow"><a class="button is-primary is-rounded">Back</a>
+                    </div>
+                    <div class="column is-narrow">
+                        <button id="button-record" class="o-play-btn">
+                            <i class="o-play-btn__icon">
+                                <div class="o-play-btn__mask"></div>
+                            </i>
+                        </button>
+                    </div>
+                    <div id="button-next" class="column is-narrow"><a class="button is-primary is-rounded">Next</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- 
+    <section class="footer">
+    </section> -->
+</body>
+
+</html>
