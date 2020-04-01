@@ -28,6 +28,7 @@ function getCategory(e) {
 }
 
 function getArticleData(api, requestBody, method) {
+
   let request = new XMLHttpRequest()
   console.log(requestBody)
   request.open(method, api, true)
@@ -39,10 +40,16 @@ function getArticleData(api, requestBody, method) {
     let articleData = JSON.parse(this.response)
     if (request.status >= 200 && request.status < 400) {
       console.log(articleData)
+      let countDownTime = articleData["record_time"]
+      let countdownNumberEl = document.getElementById('countdown-number')
+      countdownNumberEl.innerHTML = countDownTime
+
       setArticleView(articleData["title"], articleData["url"], articleData["sentences"][index])
       let buttonRecord = document.querySelector("#button-record")
 
       buttonRecord.onclick = function (event) {
+        countdownInterval = countdown(countDownTime)
+
         let buttonRecord = document.querySelector("#button-record")
         buttonRecord.classList.toggle('o-play-btn--playing')
         startRecord = true
@@ -75,6 +82,8 @@ function getArticleData(api, requestBody, method) {
         progressBar.setAttribute("value", index + 1)
         setArticleView(articleData["title"], articleData["url"], articleData["sentences"][index])
         buttonRecord.onclick = function (event) {
+          countdown(countDownTime)
+
           let buttonRecord = document.querySelector("#button-record")
           buttonRecord.classList.toggle('o-play-btn--playing')
           startRecord = true
@@ -102,6 +111,8 @@ function getArticleData(api, requestBody, method) {
         progressBar.setAttribute("value", index - 1)
         setArticleView(articleData["title"], articleData["url"], articleData["sentences"][index])
         buttonRecord.onclick = function (event) {
+          countdown(countDownTime)
+
           let buttonRecord = document.querySelector("#button-record")
           buttonRecord.classList.toggle('o-play-btn--playing')
           startRecord = true
@@ -158,4 +169,48 @@ function recordArticle(api, requestBody, method) {
       buttonRecord.classList.remove('o-play-btn--playing')
     }
   }
+}
+
+function countdown(countDownTime) {
+  let countdownNumberEl = document.getElementById('countdown-number')
+  let circle = document.getElementById('circle')
+
+  // circle.style.stroke = '#00BCD4'
+  // countdownNumberEl.style.color = '#009688'
+
+  // let start = '0px'
+  // let finish = '110px'
+  // if (countDownTime == 0) {
+  //   finish = '0px'
+  // }
+  // circle.animate([
+  //   // keyframes
+  //   { strokeDashoffset: start },
+  //   { strokeDashoffset: finish }
+  // ], {
+  //   // timing options
+  //   duration: 1000 * countDownTime,
+  //   fill: 'forwards',
+  //   easing: 'linear',
+  //   iterations: Infinity
+  // })
+
+  countdownNumberEl.innerHTML = countDownTime
+  setInterval(function () {
+    // let countdownNumberEl = document.getElementById('countdown-number')
+    // let circle = document.getElementById('circle')
+
+    if (countDownTime == 0) {
+      // circle.style.stroke = '#f44336'
+      // countdownNumberEl.style.color = '#f44336'
+
+      return
+    } else {
+      // circle.style.stroke = '#00BCD4'
+      // countdownNumberEl.style.color = '#009688'
+    }
+
+    countDownTime = --countDownTime
+    countdownNumberEl.innerHTML = countDownTime
+  }, 1000)
 }

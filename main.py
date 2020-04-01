@@ -17,7 +17,8 @@ def get_article_sentences():
         'title': '',
         'url': '',
         'sentences': [],
-        'total_sentences': ''
+        'total_sentences': '',
+        'record_time': 10
     }
     print(request.get_json())
     request_category = request.get_json()['category']

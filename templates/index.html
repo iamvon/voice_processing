@@ -58,12 +58,22 @@
         <div class="column">
             <section class="section">
                 <div class="container is-size-5">
-                    <h2 class="title " id="article-title">Article's title</h2>
-                    <a id="article-url">
-                        This is an article's url.
-                    </a>
-                    <br/>
-                    <br/>
+                    <div class="columns is-mobile is-centered">
+                        <div class="column is-narrow">
+                            <h2 class="title " id="article-title">Article's title</h2>
+                            <a id="article-url">
+                                This is an article's url.
+                            </a>
+                        </div>
+                        <div class="column is-narrow is-centered">
+                            <div id="countdown">
+                                <div id="countdown-number"></div>
+                                <svg>
+                                    <circle id="circle" r="18" cx="20" cy="20"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                     <div id="article-sentence" class="notification">
                         This is an article's sentence.
                     </div>
@@ -83,6 +93,7 @@
                     </div>
                 </div>
             </section>
+
         </div>
     </div>
     <!-- 
