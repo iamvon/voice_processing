@@ -66,7 +66,7 @@ def get_article(category):
     content_data = ''
     for content in contents:
         content_data = content_data + content.text.replace('\xa0', ' ').replace('\t', '') + ' '
-    content_data = content_data.translate({ord(c): ' ' for c in "!@#$%^&*()[]{};:,<>?\|`~-=_+"})
+    # content_data = content_data.translate({ord(c): ' ' for c in "!@#$%^&*()[]{};:,<>?\|`~-=_+"})
     article_data_dict['content'] = content_data
     print(article_data_dict)
     return article_data_dict

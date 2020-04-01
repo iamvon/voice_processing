@@ -46,7 +46,7 @@ def record(category, article_url, article_sentence, sentence_number, total):
 
     sd.default.device = 0
     fs = 44100  # Sample rate
-    seconds = 10  # Duration of recording
+    seconds = 20  # Duration of recording
 
     myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
     print('Recording...')
